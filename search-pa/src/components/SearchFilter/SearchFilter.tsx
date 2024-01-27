@@ -32,7 +32,7 @@ function SearchFilter() {
               </div>
               <div className="flex-1 flex px-4 py-2 bg-white">
                 {values.map(chip => {
-                  return <Chip />;
+                  return <Chip name={chip} />;
                 })}
               </div>
             </div>

@@ -1,9 +1,26 @@
-import React from 'react'
+'use client';
+import { useState } from 'react';
 
-function Chip() {
-  return (
-    <div>Chip</div>
-  )
+interface Props {
+  name: string;
 }
 
-export default Chip
+function Chip({ name }: Props) {
+  const [isActive, setIsActive] = useState(false);
+
+  const toggleIsActive = () => {
+    setIsActive(!isActive);
+  };
+
+  return (
+    <button
+      onClick={toggleIsActive}
+      className={`border rounded-full mr-2 px-4 py-[4px] text-sm font-semibold transition-colors
+        ${isActive ? 'bg-elice-purple text-white' : 'bg-elice-white text-filtering-title'}`}
+    >
+      {name}
+    </button>
+  );
+}
+
+export default Chip;
