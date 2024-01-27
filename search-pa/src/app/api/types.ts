@@ -23,8 +23,3 @@ export interface EliceCourseListResponse {
   courseCount: number;
   courses: EliceCourse[];
 }
-export interface EliceCourseListParams {
-  offset: number;
-  count: number;
-  filter_conditions?: string;
-}
