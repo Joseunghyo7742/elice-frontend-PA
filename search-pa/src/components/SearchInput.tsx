@@ -7,8 +7,6 @@ function SearchInput() {
   const [inputValue, setInputValue] = useState('');
   const debouncedSearch = useDebounce(inputValue, 300);
 
-  
-
   return (
     <div className="bg-white overflow-hidden py-3 flex items-center border rounded border-box-border focus-within:border-elice-purple ">
       <IoIosSearch className="mx-4 text-text-black" size="16px" />
