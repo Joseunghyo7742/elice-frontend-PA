@@ -1,14 +1,21 @@
 'use client';
 import { IoIosSearch } from 'react-icons/io';
 import useDebounce from 'hooks/useDebounce';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 function SearchInput() {
   const [inputValue, setInputValue] = useState('');
   const debouncedSearch = useDebounce(inputValue, 300);
 
+  useEffect(() => {
+    if (debouncedSearch) {
+      const filter_conditions = JSON.stringify({
+        $and: [{ title: `%${debouncedSearch}%` }],
+      });
+    }
+  });
   return (
-    <div className="bg-white overflow-hidden py-3 flex items-center border rounded border-box-border focus-within:border-elice-purple ">
+    <div className="my-3 bg-white overflow-hidden py-3 flex items-center border rounded border-box-border focus-within:border-elice-purple ">
       <IoIosSearch className="mx-4 text-text-black" size="16px" />
       <input
         className="flex-1 text-sm placeholder:text-[gray] outline-none"
