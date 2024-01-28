@@ -4,10 +4,11 @@ import { useState } from 'react';
 
 interface Props {
   name: string;
+  value: any;
   queryCategory: string;
 }
 
-function Chip({ name, queryCategory }: Props) {
+function Chip({ value, name, queryCategory }: Props) {
   const searchParams = useSearchParams();
   const router = useRouter();
   const isActive = searchParams.getAll(queryCategory).includes(name);

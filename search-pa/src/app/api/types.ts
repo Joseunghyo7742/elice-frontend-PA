@@ -28,3 +28,4 @@ export interface EliceCourseListResponse {
   course_count: number;
   courses: EliceCourse[];
 }
+
