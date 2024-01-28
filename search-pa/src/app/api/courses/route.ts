@@ -19,7 +19,7 @@ export async function GET(request: NextRequest) {
   urlWithParams.searchParams.append('count', count);
   if (filter_conditions) urlWithParams.searchParams.append('filter_conditions', filter_conditions);
 
-  const res = await fetch(urlWithParams.toString(), {
+  const res = await fetch(urlWithParams, {
     headers: {
       'Content-Type': 'application/json',
     },
