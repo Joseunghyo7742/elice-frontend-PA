@@ -1,4 +1,5 @@
 import CourseList from 'components/CourseList';
+import Pagenation from 'components/Pagenation';
 import SearchFilter from 'components/SearchFilter/SearchFilter';
 import SearchInput from 'components/SearchInput';
 
@@ -13,6 +14,7 @@ export default function CourseSearch() {
       {/* SearchLists */}
       <section>
         <CourseList />
+        <Pagenation />
       </section>
     </>
   );

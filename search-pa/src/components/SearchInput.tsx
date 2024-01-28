@@ -2,18 +2,19 @@
 import { IoIosSearch } from 'react-icons/io';
 import useDebounce from 'hooks/useDebounce';
 import { useEffect, useState } from 'react';
+import { useRouter, useSearchParams } from 'next/navigation';
 
 function SearchInput() {
   const [inputValue, setInputValue] = useState('');
   const debouncedSearch = useDebounce(inputValue, 300);
 
-  // useEffect(() => {
-  //   if (debouncedSearch) {
-  //     const filter_conditions = JSON.stringify({
-  //       $and: [{ title: `%${debouncedSearch}%` }],
-  //     });
-  //   }
-  // });
+  useEffect(() => {
+    if (debouncedSearch) {
+      const filter_conditions = JSON.stringify({
+        $and: [{ title: `%${debouncedSearch}%` }],
+      });
+    }
+  });
   return (
     <div className="my-3 bg-white overflow-hidden py-3 flex items-center border rounded border-box-border focus-within:border-elice-purple ">
       <IoIosSearch className="mx-4 text-text-black" size="16px" />
