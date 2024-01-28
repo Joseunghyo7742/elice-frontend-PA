@@ -26,7 +26,7 @@ function Chip({ keyNum, value, name, queryCategory }: Props) {
     }
     router.push(`/courses/?${params.toString()}`);
 
- 
+  }
   return (
     <button
       onClick={toggleIsActive}
