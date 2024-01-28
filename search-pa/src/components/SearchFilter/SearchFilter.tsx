@@ -30,7 +30,7 @@ function SearchFilter() {
               <div className="flex justify-start pl-2 items-center border-r min-w-20 text-xs bg-table-title-bg text-text-black font-semibold">
                 <h3>{category}</h3>
               </div>
-              <div className="flex-1 flex px-4 py-2 bg-white">
+              <div className="flex-1 flex flex-wrap px-4 py-2 bg-white">
                 {values.map(chip => {
                   return <Chip name={chip} />;
                 })}

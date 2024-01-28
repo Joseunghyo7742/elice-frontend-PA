@@ -15,7 +15,7 @@ function Chip({ name }: Props) {
   return (
     <button
       onClick={toggleIsActive}
-      className={`border rounded-full mr-2 px-4 py-[4px] text-sm font-semibold transition-colors
+      className={`border rounded-full mr-2 my-[1px] px-4 py-[3px] text-sm font-semibold transition-colors
         ${isActive ? 'bg-elice-purple text-white' : 'bg-elice-white text-filtering-title'}`}
     >
       {name}
