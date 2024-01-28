@@ -12,26 +12,6 @@ const FilterName: FilterNameType = {
   programmingLanguage: '언어',
   price: '가격',
 };
-// const FilterData = {
-//   courseType: ['과목', '챌린지', '테스트'],
-//   format: ['자유 선택형', '순차 완료형'],
-//   category: ['프로그래밍 기초', '데이터 분석', '웹', '인공지능', '알고리즘'],
-//   level: ['입문', '초급', '중급', '고급'],
-//   programmingLanguage: [
-//     'C',
-//     'C++',
-//     '자바',
-//     '파이썬',
-//     '자바스크립트',
-//     'R',
-//     'HTML/CSS',
-//     'SQL',
-//     '아두이노',
-//     '스크래치',
-//   ],
-//   price: ['무료', '유료', '구독'],
-// };
-
 const FilteringData = FITERING_KEYWORD_MAP;
 
 function SearchFilter() {
@@ -45,8 +25,8 @@ function SearchFilter() {
                 <h3>{FilterName[categoryKey]}</h3>
               </div>
               <div className="flex-1 flex flex-wrap px-4 py-2 bg-white">
-                {Object.entries(categoryValues).map(([valueKey, { value, name }]) => {
-                  return <Chip queryCategory={categoryKey} value={value} name={name} />;
+                {Object.entries(categoryValues).map(([keyNum, { value, name }]) => {
+                  return <Chip queryCategory={categoryKey} keyNum={keyNum} value={value} name={name} />;
                 })}
               </div>
             </div>

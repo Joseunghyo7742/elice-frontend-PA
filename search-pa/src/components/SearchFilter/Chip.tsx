@@ -5,24 +5,25 @@ import { useState } from 'react';
 interface Props {
   name: string;
   value: any;
+  keyNum: string;
   queryCategory: string;
 }
 
-function Chip({ value, name, queryCategory }: Props) {
+function Chip({ keyNum, value, name, queryCategory }: Props) {
   const searchParams = useSearchParams();
   const router = useRouter();
-  const isActive = searchParams.getAll(queryCategory).includes(name);
+  const isActive = searchParams.getAll(queryCategory).includes(keyNum);
 
   const toggleIsActive = () => {
     const params = new URLSearchParams(searchParams);
     const currentParams = params.getAll(queryCategory);
 
-    if (currentParams.includes(name)) {
-      const nextParams = currentParams.filter(param => param !== name);
+    if (currentParams.includes(keyNum)) {
+      const nextParams = currentParams.filter(param => param !== keyNum);
       params.delete(queryCategory);
       nextParams.forEach(param => params.append(queryCategory, param));
     } else {
-      params.append(queryCategory, name);
+      params.append(queryCategory, keyNum);
     }
     router.push(`/courses/?${params.toString()}`);
   };
