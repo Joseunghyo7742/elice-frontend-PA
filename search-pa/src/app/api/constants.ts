@@ -1,4 +1,4 @@
-export const FITERING_KEYWORD_MAP = {
+export const FILTERING_KEYWORD_MAP = {
   courseType: {
     '1': {
       value: JSON.stringify([{ course_type: 0 }, { course_type: 2 }]),
@@ -52,4 +52,5 @@ export const FITERING_KEYWORD_MAP = {
     '28': { value: JSON.stringify({ enroll_type: 4 }), name: '구독' },
     '29': { value: JSON.stringify({ enroll_type: 6 }), name: '크레딧' },
   },
+  keyword:{}
 };
