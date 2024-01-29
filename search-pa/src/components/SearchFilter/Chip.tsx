@@ -23,6 +23,7 @@ function Chip({ id, name, value, filterCondition }: Props) {
   //filterCondition을 이름으로 가진 query 배열 반환 -> id포함여부 확인
   const keyword = searchParams.get('keyword');
 
+
   const handleChipClick = async () => {
     const params = new URLSearchParams(searchParams);
     const currentParams = params.getAll(filterCondition);
@@ -32,8 +33,9 @@ function Chip({ id, name, value, filterCondition }: Props) {
       params.append(filterCondition, id);
     }
     router.replace(`/courses?${params.toString()}`);
+    
   };
-
+  
   return (
     <button
       onClick={handleChipClick}
