@@ -6,9 +6,8 @@ import { useRouter } from 'next/navigation';
 
 function SearchInput() {
   const [inputValue, setInputValue] = useState('');
-  const debouncedSearch = useDebounce(inputValue, 300);
+  const debouncedSearch = useDebounce(inputValue, 1000);
   const router = useRouter();
-
   useEffect(() => {
     const url = new URL(location.href);
     if (inputValue.length > 0) url.searchParams.set('keyword', inputValue);

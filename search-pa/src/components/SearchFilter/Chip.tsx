@@ -1,7 +1,5 @@
 'use client';
-import { FILTERING_KEYWORD_MAP } from 'app/api/constants';
-import { usePathname, useRouter, useSearchParams } from 'next/navigation';
-import { useState } from 'react';
+import { useRouter, useSearchParams } from 'next/navigation';
 
 type FilterConditionType =
   | 'courseType'
@@ -13,29 +11,26 @@ type FilterConditionType =
 interface Props {
   id: string;
   name: string;
-  value: any;
   filterCondition: FilterConditionType;
 }
-function Chip({ id, name, value, filterCondition }: Props) {
+function Chip({ id, name, filterCondition }: Props) {
   const router = useRouter(); // url 동기화를 위함
   const searchParams = useSearchParams(); //현재 params값을 가져오기 위함
   const isActive = searchParams.getAll(filterCondition).includes(id);
   //filterCondition을 이름으로 가진 query 배열 반환 -> id포함여부 확인
-  const keyword = searchParams.get('keyword');
-
 
   const handleChipClick = async () => {
-    const params = new URLSearchParams(searchParams);
+    const url = new URL(location.href);
+    const params = url.searchParams;
     const currentParams = params.getAll(filterCondition);
     if (currentParams.includes(id)) {
       params.delete(filterCondition, id);
     } else {
       params.append(filterCondition, id);
     }
-    router.replace(`/courses?${params.toString()}`);
-    
+    router.replace(url.toString(), undefined);
   };
-  
+
   return (
     <button
       onClick={handleChipClick}

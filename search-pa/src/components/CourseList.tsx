@@ -2,11 +2,14 @@
 
 import { EliceCourseListResponse, EliceCourse } from 'app/api/types';
 import CourseCard from 'components/CourseCard';
+import { useSearchParams } from 'next/navigation';
 import { useEffect, useState } from 'react';
 
 function CourseList() {
   const [courses, setCourses] = useState<EliceCourse[]>([]);
   const [courseCount, setCourseCount] = useState<number>(0);
+  const searchParams = useSearchParams().toString(); //현재 params값을 가져오기 위함
+  console.log(searchParams);
   useEffect(() => {
     const getCourses = async () => {
       try {

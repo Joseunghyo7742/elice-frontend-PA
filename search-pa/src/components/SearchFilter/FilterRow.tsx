@@ -24,15 +24,7 @@ function FilterRow({ name, filterCondition }: Props) {
       </div>
       <div className="flex-1 flex flex-wrap px-4 py-2 bg-white">
         {chipList.map(([id, chip]) => {
-          return (
-            <Chip
-              key={id}
-              id={id}
-              name={chip.name}
-              value={chip.value}
-              filterCondition={filterCondition}
-            />
-          );
+          return <Chip key={id} id={id} name={chip.name} filterCondition={filterCondition} />;
         })}
       </div>
     </div>
