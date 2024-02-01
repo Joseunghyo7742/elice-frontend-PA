@@ -52,5 +52,5 @@ export const FILTERING_KEYWORD_MAP = {
     '28': { value: JSON.stringify({ enroll_type: 4 }), name: '구독' },
     '29': { value: JSON.stringify({ enroll_type: 6 }), name: '크레딧' },
   },
-  keyword:{}
+  // keyword:{}
 };

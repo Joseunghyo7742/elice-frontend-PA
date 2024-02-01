@@ -6,25 +6,28 @@ import { useSearchParams } from 'next/navigation';
 import { useEffect, useState } from 'react';
 
 function CourseList() {
+  //페이지 변경 시, offset 초기화 필요.
   const [courses, setCourses] = useState<EliceCourse[]>([]);
   const [courseCount, setCourseCount] = useState<number>(0);
+  const [page, setPage] = useState<string>('0');
   const searchParams = useSearchParams().toString(); //현재 params값을 가져오기 위함
-  console.log(searchParams);
-  useEffect(() => {
-    const getCourses = async () => {
-      try {
-        const res = await fetch(`http://localhost:3000/api/courses/?offset=0&count=20`);
-        const response: EliceCourseListResponse = await res.json();
-        console.log('response', response);
-        setCourses(response.courses);
-        setCourseCount(response.course_count);
-      } catch (error) {
-        console.log('에러', error);
-      }
-    };
 
-    getCourses();
-  }, []);
+  const getCourse = async () => {
+    try {
+      const res = await fetch(
+        `http://localhost:3000/api/courses/?${searchParams}&offset=${page}`,
+      );
+      const response: EliceCourseListResponse = await res.json();
+      setCourses(response.courses);
+      setCourseCount(response.course_count);
+    } catch (error) {
+      console.log('에러');
+    }
+  };
+  useEffect(() => {
+    getCourse();
+  }, [searchParams, page]);
+
   return (
     <div className="my-6 ">
       <div className="text-xs font-semibold text-text-black mb-4">전체 {courseCount}개</div>

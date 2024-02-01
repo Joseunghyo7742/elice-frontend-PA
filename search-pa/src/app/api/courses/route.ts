@@ -7,17 +7,22 @@ export async function GET(request: NextRequest) {
   const { searchParams } = new URL(request.url);
 
   const offset = searchParams.get('offset');
-  const count = searchParams.get('count');
-  const filter_conditions = searchParams.get('filter_conditions');
-
-  if (!offset || !count) {
-    return NextResponse.json({ error: 'offset and count are required' }, { status: 400 });
+  const filter_obj: { [key: string]: string[] } = {};
+  //offset은 제외해야함.
+  //필수 입력값인 offset 체크
+  if (!offset) {
+    return NextResponse.json({ error: 'offset is required' }, { status: 400 });
   }
 
+  // filter_obj 객체화
+  for (const [key] of searchParams.entries()) {
+    const values = searchParams.getAll(key);
+    filter_obj[key] = values;
+  }
+  console.log(filter_obj);
   const urlWithParams = new URL(DATA_SOURCE_URL);
   urlWithParams.searchParams.append('offset', offset);
-  urlWithParams.searchParams.append('count', count);
-  if (filter_conditions) urlWithParams.searchParams.append('filter_conditions', filter_conditions);
+  urlWithParams.searchParams.append('count', '20');
 
   const res = await fetch(urlWithParams, {
     headers: {

@@ -1,4 +1,3 @@
-import { FILTERING_KEYWORD_MAP } from 'app/api/constants';
 import FilterRow from 'components/SearchFilter/FilterRow';
 
 function SearchFilter() {
