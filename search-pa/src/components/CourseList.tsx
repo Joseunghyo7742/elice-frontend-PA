@@ -14,9 +14,7 @@ function CourseList() {
 
   const getCourse = async () => {
     try {
-      const res = await fetch(
-        `http://localhost:3000/api/courses/?${searchParams}&offset=${page}`,
-      );
+      const res = await fetch(`http://localhost:3000/api/courses/?${searchParams}&offset=${page}`);
       const response: EliceCourseListResponse = await res.json();
       setCourses(response.courses);
       setCourseCount(response.course_count);
