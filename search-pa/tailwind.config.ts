@@ -17,7 +17,7 @@ const config: Config = {
         'box-border': 'rgb(201, 202, 204)',
         'border-gray': '#E1E2E4',
         'table-title-bg': '#F9FAFC',
-        'filtering-title': '#71746F',
+        'filtering-title': '#71746F' ,
       },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',

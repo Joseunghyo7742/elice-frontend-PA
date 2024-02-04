@@ -27,7 +27,7 @@ export async function GET(request: NextRequest) {
   const urlWithParams = new URL(DATA_SOURCE_URL);
   urlWithParams.searchParams.append('filter_conditions', filter_conditions);
   urlWithParams.searchParams.append('offset', offset);
-  urlWithParams.searchParams.append('count', '20');
+  urlWithParams.searchParams.append('count', '12');
 
   console.log(urlWithParams);
   const res = await fetch(urlWithParams, {

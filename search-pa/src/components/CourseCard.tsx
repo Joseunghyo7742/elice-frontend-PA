@@ -13,7 +13,7 @@ interface Props {
 }
 function CourseCard({ enrollType, isFree, logoFileUrl, shortDescription, title }: Props) {
   return (
-    <div className="flex flex-col h-[338px] w-[296px] rounded-lg bg-white py-7 px-6 shadow-md">
+    <div className="flex flex-col h-[338px] w-full rounded-lg bg-white py-7 px-6 shadow-md">
       <div className="flex flex-col gap-1">
         <span className="font-bold text-xs text-elice-purple">프로그래밍 기초</span>
         <h3
