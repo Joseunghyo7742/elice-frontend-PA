@@ -17,11 +17,11 @@ export async function GET(request: NextRequest) {
 
   // filter_obj 객체화
   for (const [key] of searchParams.entries()) {
-    if (key === 'offset' ) continue;
+    if (key === 'offset') continue;
     const values = searchParams.getAll(key);
     filter_obj[key] = values;
   }
-  console.log(filter_obj);  //{ courseType: [ '1' ], format: [ '4', '5' ] }
+  console.log(filter_obj); //{ courseType: [ '1' ], format: [ '4', '5' ] }
 
   const filter_conditions = JSON.stringify(getApiQueryString(filter_obj));
   const urlWithParams = new URL(DATA_SOURCE_URL);

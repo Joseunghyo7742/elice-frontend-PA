@@ -48,11 +48,11 @@ export const FILTERING_KEYWORD_MAP: FilteringKeywordMap = {
   },
   price: {
     '26': {
-      value: [{ enroll_type: 0, is_free: true }],
+      value: { enroll_type: 0, is_free: true },
       name: '무료',
     },
     '27': {
-      value: [{ enroll_type: 0, is_free: false }],
+      value:{ enroll_type: 0, is_free: false },
       name: '유료',
     },
     '28': { value: { enroll_type: 4 }, name: '구독' },
