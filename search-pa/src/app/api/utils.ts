@@ -19,10 +19,9 @@ export function getApiQueryString(filter_obj: Params) {
   const filterConditions: FilterConditions = {
     $and: [...DEFAULT_FILTER],
   };
-  console.log('in getAPI func');
   const { category, courseType, format, keyword, level, price, programmingLanguage } = filter_obj;
   //객체 돌면서 FILTERING_KEYWORD_MAP에 맵핑되는 key-> 배열 돌면서 그것의 value값을 넣어주면된다.
-  //객체를 도는 대신 스프레드 연산한다음
+  //객체를 도는 대신 구조분해할당을 쓴다. 할당되지않는 건 undefined
   if (keyword) {
     filterConditions.$and.push({ title: `%${keyword[0]}%` });
   } else {
@@ -33,23 +32,23 @@ export function getApiQueryString(filter_obj: Params) {
     filterConditions.$and.push(query_data);
   }
   if (courseType) {
-    const query_data = convertParams('courseType', category);
+    const query_data = convertParams('courseType', courseType);
     filterConditions.$and.push(query_data);
   }
   if (format) {
-    const query_data = convertParams('format', category);
+    const query_data = convertParams('format', format);
     filterConditions.$and.push(query_data);
   }
   if (level) {
-    const query_data = convertParams('level', category);
+    const query_data = convertParams('level', level);
     filterConditions.$and.push(query_data);
   }
   if (price) {
-    const query_data = convertParams('price', category);
+    const query_data = convertParams('price', price);
     filterConditions.$and.push(query_data);
   }
   if (programmingLanguage) {
-    const query_data = convertParams('programmingLanguage', category);
+    const query_data = convertParams('programmingLanguage', programmingLanguage);
     filterConditions.$and.push(query_data);
   }
   return filterConditions;

@@ -25,8 +25,8 @@ export async function GET(request: NextRequest) {
 
   const filter_conditions = JSON.stringify(getApiQueryString(filter_obj));
   const urlWithParams = new URL(DATA_SOURCE_URL);
-  urlWithParams.searchParams.append('offset', offset);
   urlWithParams.searchParams.append('filter_conditions', filter_conditions);
+  urlWithParams.searchParams.append('offset', offset);
   urlWithParams.searchParams.append('count', '20');
 
   console.log(urlWithParams);
