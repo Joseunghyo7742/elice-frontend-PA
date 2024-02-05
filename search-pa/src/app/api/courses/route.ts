@@ -1,5 +1,6 @@
 import { EliceCourseListResponse } from 'app/api/types';
 import { getApiQueryString } from 'app/api/utils';
+import { limit } from 'constant';
 import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
 const DATA_SOURCE_URL = 'https://api-rest.elice.io/org/academy/course/list/';
@@ -27,7 +28,7 @@ export async function GET(request: NextRequest) {
   const urlWithParams = new URL(DATA_SOURCE_URL);
   urlWithParams.searchParams.append('filter_conditions', filter_conditions);
   urlWithParams.searchParams.append('offset', offset);
-  urlWithParams.searchParams.append('count', '12');
+  urlWithParams.searchParams.append('count', limit.toString());
 
   console.log(urlWithParams);
   const res = await fetch(urlWithParams, {
