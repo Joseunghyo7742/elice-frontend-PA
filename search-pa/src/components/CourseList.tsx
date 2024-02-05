@@ -11,7 +11,7 @@ function CourseList() {
   //페이지 변경 시, offset 초기화 필요.
   const [courses, setCourses] = useState<EliceCourse[]>([]);
   const [courseCount, setCourseCount] = useState<number>(0);
-  const [page, setPage] = useState<number>(0);
+  const [page, setPage] = useState<number>(1);
   const offset= (page-1)*limit //limit 페이지당 표시할 게시글 수
   const searchParams = useSearchParams().toString(); //현재 params값을 가져오기 위함
 
