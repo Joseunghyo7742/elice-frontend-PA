@@ -12,7 +12,7 @@ function CourseList() {
   const [courses, setCourses] = useState<EliceCourse[]>([]);
   const [courseCount, setCourseCount] = useState<number>(0);
   const [page, setPage] = useState<number>(1);
-  const offset= (page-1)*limit //limit 페이지당 표시할 게시글 수
+  const offset = (page - 1) * limit; //limit 페이지당 표시할 게시글 수
   const searchParams = useSearchParams().toString(); //현재 params값을 가져오기 위함
 
   const getCourse = async () => {
@@ -30,11 +30,11 @@ function CourseList() {
   }, [searchParams, page]);
 
   return (
-    <div className="my-6 ">
+    <div className="my-6">
       <div className="text-xs font-semibold text-text-black mb-4">전체 {courseCount}개</div>
       <hr />
       <ul className="mt-4 gap-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 ">
-        {courses.slice(offset,offset+limit).map(course => (
+        {courses.slice(offset, offset + limit).map(course => (
           <li>
             <CourseCard
               enrollType={course.enroll_type}
@@ -46,7 +46,7 @@ function CourseList() {
           </li>
         ))}
       </ul>
-      <div>
+      <div className="w-56 mx-auto mt-6">
         <Pagenation total={courseCount} limit={limit} page={page} setPage={setPage} />
       </div>
     </div>
