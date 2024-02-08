@@ -22,7 +22,7 @@ export async function GET(request: NextRequest) {
     const values = searchParams.getAll(key);
     filter_obj[key] = values;
   }
-  console.log(filter_obj); //{ courseType: [ '1' ], format: [ '4', '5' ] }
+
 
   const filter_conditions = JSON.stringify(getApiQueryString(filter_obj));
   const urlWithParams = new URL(DATA_SOURCE_URL);

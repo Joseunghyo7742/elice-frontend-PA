@@ -7,7 +7,7 @@ type FilteringKeywordMap = {
 export const FILTERING_KEYWORD_MAP: FilteringKeywordMap = {
   courseType: {
     '1': {
-      value: { $or: [{ course_type: 0 }, { course_type: 2 }]},
+      value: { $or: [{ course_type: 0 }, { course_type: 2 }] },
       name: '과목',
     },
     '2': { value: { course_type: 1 }, name: '챌린지' },
@@ -52,11 +52,10 @@ export const FILTERING_KEYWORD_MAP: FilteringKeywordMap = {
       name: '무료',
     },
     '27': {
-      value:{ enroll_type: 0, is_free: false },
+      value: { enroll_type: 0, is_free: false },
       name: '유료',
     },
     '28': { value: { enroll_type: 4 }, name: '구독' },
     '29': { value: { enroll_type: 6 }, name: '크레딧' },
   },
-
 };
