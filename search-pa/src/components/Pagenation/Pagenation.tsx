@@ -14,21 +14,25 @@ function Pagenation({ total, limit, page, setPage }: Props) {
 
   let startIndex = Math.max(MIN_PAGE_INDEX, page - 2); // 페이지 시작인덱스
   const endIndex = Math.min(TOTAL_PAGES, startIndex + VISIBLE_PAGE_INDEX - 1); //끝 인덱스
-  if (endIndex - startIndex < VISIBLE_PAGE_INDEX - 1) {
+  if (TOTAL_PAGES > VISIBLE_PAGE_INDEX && endIndex - startIndex < VISIBLE_PAGE_INDEX - 1) {
     //시작 인덱스와 끝 인덱스의 갭이 보여질 페이지 수보다 작다면
     startIndex = endIndex - VISIBLE_PAGE_INDEX + 1;
   }
-  const idxArr = Array.from({ length: VISIBLE_PAGE_INDEX }, (_, i) => i + startIndex);
+  const idxArr = Array.from(
+    { length: Math.min(VISIBLE_PAGE_INDEX, TOTAL_PAGES) },
+    (_, i) => i + startIndex,
+  );
 
   const handleIndexClick = (idx: number) => {
     setPage(idx);
   };
 
   return (
-    <div className="flex items-center justify-between">
+    <div className="flex items-center justify-center gap-4">
       <NavArrow direction="prev" page={page} setPage={setPage} limit={TOTAL_PAGES} />
       {idxArr.map(idx => (
         <button
+          key={idx}
           onClick={() => {
             handleIndexClick(idx);
           }}

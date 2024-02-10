@@ -2,6 +2,7 @@ import { Inter } from 'next/font/google';
 
 import type { Metadata } from 'next';
 import './globals.css';
+import ReactQueryProvider from 'app/ReactQueryProvider';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -16,10 +17,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={`${inter.className} bg-elice-white min-h-screen`}>
-        <main className="mx-auto w-full p-6 max-w-7xl">{children}</main>
-      </body>
-    </html>
+    <ReactQueryProvider>
+      <html lang="en">
+        <body className={`${inter.className} bg-elice-white min-h-screen`}>
+          <main className="mx-auto w-full p-6 max-w-7xl">{children}</main>
+        </body>
+      </html>
+    </ReactQueryProvider>
   );
 }

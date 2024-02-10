@@ -1,7 +1,8 @@
+import Loading from 'app/courses/loading';
 import CourseList from 'components/CourseList';
-import Pagenation from 'components/Pagenation/Pagenation';
 import SearchFilter from 'components/SearchFilter/SearchFilter';
 import SearchInput from 'components/SearchInput';
+import { Suspense } from 'react';
 
 export default function CourseSearch() {
   return (
@@ -13,7 +14,9 @@ export default function CourseSearch() {
       </section>
       {/* SearchLists */}
       <section>
-        <CourseList />
+        {/* <Suspense fallback={<Loading />}> */}
+          <CourseList />
+        {/* </Suspense> */}
       </section>
     </>
   );
