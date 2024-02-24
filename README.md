@@ -66,6 +66,7 @@ npm run dev
 - Filter (SearchFilter & Chip 컴포넌트)로 UI를 화면처럼 구현하였습니다.
 - CourseCard 내 Label, Title, Body, Description, IconText, Logo 를 요구사항대로 구현했습니다.
 - enroll_type과 course.is_free 값에 따라 label표기를 명확히 하였습니다.
+- pagenation 구현 완료하였습니다.
 
 #### 2. url Query 적용
 
@@ -97,7 +98,7 @@ function Chip({ keyNum, value, name, queryCategory }: Props) {
 #### 3. Next.js API [Route Handler](https://nextjs.org/docs/app/building-your-application/routing/route-handlers)를 활용한 API서버 구현
 
 - Next.js 서버 단에서 API 요청을 하여 CORS 문제를 해결하였습니다.
-- 필터와 검색 키워드는 반영하지 못하였으나 CourseList 컴포넌트에서 필수 Params인 count와 offset을 파라미터로 넣어 서버로 API요청 하도록 구현했습니다.
+- 필터와 검색 키워드에 따른 서버 요청 완료 
 - 공식문서와 [영상을 참고](https://www.youtube.com/watch?v=xirQ7AMyTM8&t=881s)하여 구현했습니다
 
 #### 4. eslint, prettier 설정
