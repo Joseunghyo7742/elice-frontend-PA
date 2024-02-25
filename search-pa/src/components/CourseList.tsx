@@ -16,7 +16,7 @@ function CourseList() {
   const { isLoading, data, error } = useQuery({
     queryKey: ['courses', searchParams, offset],
     queryFn: (): Promise<EliceCourseListResponse> =>
-      fetch(`http://localhost:3000/api/courses/?${searchParams}&offset=${offset}`).then(res =>
+      fetch(`https://elice-frontend-pa-five.vercel.app/api/courses/?${searchParams}&offset=${offset}`).then(res =>
         res.json(),
       ),
     // suspense: true,
